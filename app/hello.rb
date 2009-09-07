@@ -1,4 +1,4 @@
-class Foo < RubyJersey::Resource
+class Hello < RubyJersey::Resource
   GET()
   Produces("text/plain")
   Returns(java.lang.String)

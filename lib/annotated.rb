@@ -32,8 +32,7 @@ class Annotated
     @method_signature.unshift clazz
   end
 
-  def self.load!
-    java.lang.System.setProperty("jruby.dump.reified.classes", ".")
-    @children.each {|c| c.become_java!} if @children
+  def self.create_all!
+    @children.each {|c| c.become_java!(".")} if @children
   end
 end
