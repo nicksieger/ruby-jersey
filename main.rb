@@ -17,7 +17,4 @@ server.add_grizzly_adapter jersey_adapter
 server.start
 puts "Foo started on http://localhost:9998"
 
-while true
-  Thread.pass
-  sleep 1
-end
+sleep 1 while true
