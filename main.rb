@@ -6,7 +6,7 @@ import com.sun.grizzly.http.embed.GrizzlyWebServer
 import com.sun.grizzly.http.servlet.ServletAdapter
 import com.sun.jersey.spi.container.servlet.ServletContainer
 
-RubyJersey::Resource.create_all!
+AnnotatedJavaClasses.create!
 
 server = GrizzlyWebServer.new(9998)
 jersey_adapter = ServletAdapter.new
