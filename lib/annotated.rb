@@ -1,6 +1,15 @@
 require 'java'
 require 'jruby/core_ext'
 
+# Aliases for compatibility with JRuby 1.6 and below
+begin
+  class Class
+    alias add_parameter_annotation add_parameter_annotations
+    alias add_class_annotations add_class_annotation
+  end
+rescue Exception
+end
+
 class AnnotatedJavaClasses
   def self.inherited(child)
     if self == AnnotatedJavaClasses
@@ -17,7 +26,7 @@ class AnnotatedJavaClasses
       @method_annotations = nil
     end
     if @parameter_annotations
-      add_parameter_annotations name.to_s, @parameter_annotations
+      add_parameter_annotation name.to_s, @parameter_annotations
       @parameter_annotations = nil
     end
     if @method_signature

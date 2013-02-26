@@ -6,14 +6,14 @@ module RubyJersey
   class Provider < AnnotatedJavaClasses
     def self.inherited(child)
       super
-      child.add_class_annotation javax.ws.rs.Provider => {}
+      child.add_class_annotations javax.ws.rs.Provider => {}
     end
   end
 
   class Resource < AnnotatedJavaClasses
     def self.inherited(child)
       super
-      child.add_class_annotation javax.ws.rs.Path => {"value" => child.name.downcase}
+      child.add_class_annotations javax.ws.rs.Path => {"value" => child.name.downcase}
     end
 
     def self.GET
